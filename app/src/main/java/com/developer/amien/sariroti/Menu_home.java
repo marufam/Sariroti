@@ -247,7 +247,7 @@ public class Menu_home extends Fragment {
                                     @Override
                                     public boolean onMarkerClick(Marker marker) {
                                         final Jadwal k = (Jadwal) marker.getTag();
-                                        Toast.makeText(getContext(), "Jarak "+(SphericalUtil.computeDistanceBetween(new LatLng(myLat, myLng), new LatLng(Double.parseDouble(k.getLatitude()), Double.parseDouble(k.getLongtitude())))), Toast.LENGTH_SHORT).show();
+//                                        Toast.makeText(getContext(), "Jarak "+(SphericalUtil.computeDistanceBetween(new LatLng(myLat, myLng), new LatLng(Double.parseDouble(k.getLatitude()), Double.parseDouble(k.getLongtitude())))), Toast.LENGTH_SHORT).show();
                                           if ((SphericalUtil.computeDistanceBetween(new LatLng(myLat, myLng), new LatLng(Double.parseDouble(k.getLatitude()), Double.parseDouble(k.getLongtitude())))) < 300) {
 
 

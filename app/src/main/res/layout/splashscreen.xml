@@ -18,7 +18,7 @@
                <ImageView
                    android:layout_width="150dp"
                    android:layout_height="150dp"
-                   android:src="@drawable/logo256"
+                   android:src="@drawable/logo128"
                    android:id="@+id/logosplash"
                    />
                <TextView

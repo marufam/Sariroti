@@ -25,7 +25,7 @@ public class Penjualan_adapter extends RecyclerView.Adapter<Penjualan_adapter.Vi
     public Penjualan_adapter(List<Penjualan> penjualans, Context a) {
         this.a=a;
         this.items = penjualans;
-        Toast.makeText(a, "ini "+items.size(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(a, "ini "+items.size(), Toast.LENGTH_SHORT).show();
     }
 
     @Override

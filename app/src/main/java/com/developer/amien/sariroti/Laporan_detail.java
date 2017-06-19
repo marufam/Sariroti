@@ -89,7 +89,7 @@ public class Laporan_detail extends AppCompatActivity {
 //                    Toast.makeText(Laporan_detail.this, ""+response.body().getPenjualan().get(0).getId_laporan(), Toast.LENGTH_SHORT).show();
                     if(response.body().getPenjualan().get(i).getId_laporan().equalsIgnoreCase(id_laporan)) {
                         mPenjualan.add(penjualanList.get(i));
-                        Toast.makeText(Laporan_detail.this, "xxx", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(Laporan_detail.this, "xxx", Toast.LENGTH_SHORT).show();
                     }
                 }
                 mAdapter = new Penjualan_adapter(mPenjualan, getApplicationContext());
