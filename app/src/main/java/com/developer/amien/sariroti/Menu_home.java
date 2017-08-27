@@ -42,6 +42,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 //import com.google.maps.android.SphericalUtil;
 import com.google.maps.android.SphericalUtil;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
@@ -71,7 +73,7 @@ public class Menu_home extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 //        return super.onCreateView(inflater, container, savedInstanceState);
         final View rootView = inflater.inflate(R.layout.fragment_menu__home, container, false);
-
+//        Toast.makeText(getContext(), ""+getnamedate(), Toast.LENGTH_SHORT).show();
         mMapView = (MapView) rootView.findViewById(R.id.mapView);
         mMapView.onCreate(savedInstanceState);
 
@@ -231,10 +233,11 @@ public class Menu_home extends Fragment {
                     @Override
                     public void onResponse(Call<GetJadwal> call, Response<GetJadwal> response) {
                         final List<Jadwal> jadwalList = response.body().getJadwal();
+//                        Toast.makeText(getContext(), "apapap", Toast.LENGTH_SHORT).show();
                         Log.d("Retrofit Get", "Jumlah data : " + String.valueOf(jadwalList.size()));
-
+//                        Log.d("hahahah", response.body().getJadwal().toString());
                         for (int i=0;i<response.body().getJadwal().size();i++) {
-                            if(response.body().getJadwal().get(i).getFoto_laporan()==null) {
+                            if(response.body().getJadwal().get(i).getHari().equalsIgnoreCase(getnamedate().toString())) {
                                 googleMap.addMarker(new MarkerOptions()
                                         .position(new LatLng(Double.parseDouble(jadwalList.get(i).getLatitude()), Double.parseDouble(jadwalList.get(i).getLongtitude())))
                                         .title("Lokasi")
@@ -259,7 +262,7 @@ public class Menu_home extends Fragment {
                                                     @Override
                                                     public void onClick(View v) {
                                                         Intent i = new Intent(getContext(), Laporan_class.class);
-                                                        i.putExtra("id", k.getId_jadwal());
+                                                        i.putExtra("id", k.getId_lokasi());
                                                         i.putExtra("status", "1");
                                                         startActivity(i);
                                                     }
@@ -274,7 +277,7 @@ public class Menu_home extends Fragment {
                                                           @Override
                                                           public void onClick(View v) {
                                                               Intent i = new Intent(getContext(), Laporan_class.class);
-                                                              i.putExtra("id", k.getId_jadwal());
+                                                              i.putExtra("id", k.getId_lokasi());
                                                               i.putExtra("status", "0");
                                                               startActivity(i);
                                                           }
@@ -298,5 +301,26 @@ public class Menu_home extends Fragment {
 
             }
         });
+    }
+    public String getnamedate(){
+        SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
+        Date d = new Date();
+        String dayOfTheWeek = sdf.format(d);
+        if(dayOfTheWeek.equalsIgnoreCase("sunday")){
+            return "minggu";
+        }else if(dayOfTheWeek.equalsIgnoreCase("monday")){
+            return "senin";
+        }else if(dayOfTheWeek.equalsIgnoreCase("tuesday")){
+            return "selasa";
+        }else if(dayOfTheWeek.equalsIgnoreCase("wednesday")){
+            return "rabu";
+        }else if(dayOfTheWeek.equalsIgnoreCase("thursday")){
+            return "kamis";
+        }else if(dayOfTheWeek.equalsIgnoreCase("friday")){
+            return "jumat";
+        }else {
+            return "sabtu";
+        }
+
     }
 }

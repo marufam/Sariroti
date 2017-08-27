@@ -30,9 +30,6 @@ public class Penjualan {
     @Expose
     private String target;
 
-    @SerializedName("id_jadwal_laporan")
-    @Expose
-    private String id_jadwal_laporan;
 
     @SerializedName("foto_laporan")
     @Expose
@@ -45,6 +42,14 @@ public class Penjualan {
     @SerializedName("status")
     @Expose
     private String status;
+
+    @SerializedName("tanggal")
+    @Expose
+    private String tanggal;
+
+    @SerializedName("id_karyawan")
+    @Expose
+    private String id_karyawan;
 
     public Penjualan(String id_laporan, String id_roti, String jumlah_jual) {
         this.id_laporan = id_laporan;
@@ -100,14 +105,6 @@ public class Penjualan {
         this.target = target;
     }
 
-    public String getId_jadwal_laporan() {
-        return id_jadwal_laporan;
-    }
-
-    public void setId_jadwal_laporan(String id_jadwal_laporan) {
-        this.id_jadwal_laporan = id_jadwal_laporan;
-    }
-
     public String getFoto_laporan() {
         return foto_laporan;
     }
@@ -130,5 +127,21 @@ public class Penjualan {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getTanggal() {
+        return tanggal;
+    }
+
+    public void setTanggal(String tanggal) {
+        this.tanggal = tanggal;
+    }
+
+    public String getId_karyawan() {
+        return id_karyawan;
+    }
+
+    public void setId_karyawan(String id_karyawan) {
+        this.id_karyawan = id_karyawan;
     }
 }

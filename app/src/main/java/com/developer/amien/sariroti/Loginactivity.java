@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -66,6 +67,7 @@ public class Loginactivity extends AppCompatActivity{
                         SharedPreferences.Editor editor = pref.edit();
                         boolean a=false;
                         Integer index=0;
+//                        Log.d("hahaha", response.body().toString());
                         for (int i=0; i<response.body().getJumlah(); i++){
                             if (response.body().getKaryawan().get(i).getUsername().equalsIgnoreCase(mEmailView.getText().toString()) && response.body().getKaryawan().get(i).getPassword().equalsIgnoreCase(mPasswordView.getText().toString())){
                                 a=true;

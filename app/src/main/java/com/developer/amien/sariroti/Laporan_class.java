@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.CursorLoader;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -149,7 +150,7 @@ public class Laporan_class extends AppCompatActivity {
     }
 
     private void uploadImage() {
-
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
         final ProgressDialog progressDialog;
         progressDialog = new ProgressDialog(Laporan_class.this);
         progressDialog.setMessage("loading...");
@@ -166,16 +167,20 @@ public class Laporan_class extends AppCompatActivity {
         MultipartBody.Part body =
                 MultipartBody.Part.createFormData("foto_laporan", file.getName(), requestFile);
         RequestBody reqid_laporan = MultipartBody.create(MediaType.parse("multipart/form-data"), "");
-        RequestBody reqid_jadwal = MultipartBody.create(MediaType.parse("multipart/form-data"), i.getStringExtra("id"));
+        RequestBody req_id_lokasi = MultipartBody.create(MediaType.parse("multipart/form-data"), i.getStringExtra("id"));
         RequestBody req_deskripsi = MultipartBody.create(MediaType.parse("multipart/form-data"), deskripsi.getText().toString());
         RequestBody req_status = MultipartBody.create(MediaType.parse("multipart/form-data"), status.toString());
+//        RequestBody req_tanggal = MultipartBody.create(MediaType.parse("multipart/form-data"), "");
+        RequestBody req_id_karyawan = MultipartBody.create(MediaType.parse("multipart/form-data"), pref.getString("id_karyawan",null));
+//        RequestBody req_id_lokasi = MultipartBody.create(MediaType.parse("multipart/form-data"), "");
         RequestBody reqaction = MultipartBody.create(MediaType.parse("multipart/form-data"), "POST");
 
 
         final Call<GetLaporan> resultCall = service.laporan_insert(body, reqid_laporan,
-                reqid_jadwal,
                 req_deskripsi,
                 req_status,
+                req_id_karyawan,
+                req_id_lokasi,
                 reqaction);
 
         resultCall.enqueue(new Callback<GetLaporan>() {
@@ -187,7 +192,7 @@ public class Laporan_class extends AppCompatActivity {
                     View child = ll.getChildAt(i);
                     if(child instanceof EditText){
                         EditText ed = (EditText)child;
-                        RequestBody req_idlaporan = MultipartBody.create(MediaType.parse("multipart/form-data"), response.body().getLaporan().get(0).getId_laporan());
+                        RequestBody req_idlaporan = MultipartBody.create(MediaType.parse("multipart/form-data"), response.body().getLaporan().get(0).getIdLaporan());
                         RequestBody req_idroti = MultipartBody.create(MediaType.parse("multipart/form-data"), String.valueOf(ed.getId()));
                         RequestBody jumlah = MultipartBody.create(MediaType.parse("multipart/form-data"), ed.getText().toString());
 //                        Toast.makeText(Laporan_class.this, ""+ed.getId()+": Jumlah "+ ed.getText(), Toast.LENGTH_SHORT).show();

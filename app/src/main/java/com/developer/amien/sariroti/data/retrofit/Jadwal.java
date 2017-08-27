@@ -11,68 +11,75 @@ public class Jadwal {
     @SerializedName("id_jadwal")
     @Expose
     private String id_jadwal;
-    @SerializedName("tanggal")
+
+    @SerializedName("id_hari")
     @Expose
-    private String tanggal;
+    private String id_hari;
+
     @SerializedName("id_karyawan")
     @Expose
     private String id_karyawan;
-    @SerializedName("nama_karyawan")
-    @Expose
-    private String nama_karyawan;
-    @SerializedName("tempat_lahir")
-    @Expose
-    private String tempat_lahir;
-    @SerializedName("tgl_lahir")
-    @Expose
-    private String tgl_lahir;
-    @SerializedName("alamat")
-    @Expose
-    private String alamat;
-    @SerializedName("jk")
-    @Expose
-    private String jk;
-    @SerializedName("username")
-    @Expose
-    private String username;
-    @SerializedName("password")
-    @Expose
-    private String password;
-    @SerializedName("foto")
-    @Expose
-    private String foto;
+
     @SerializedName("id_lokasi")
     @Expose
     private String id_lokasi;
+
+    @SerializedName("nama_karyawan")
+    @Expose
+    private String nama_karyawan;
+
+    @SerializedName("tempat_lahir")
+    @Expose
+    private String tempat_lahir;
+
+    @SerializedName("tgl_lahir")
+    @Expose
+    private String tgl_lahir;
+
+    @SerializedName("alamat")
+    @Expose
+    private String alamat;
+
+    @SerializedName("jk")
+    @Expose
+    private String jk;
+
+    @SerializedName("username")
+    @Expose
+    private String username;
+
+    @SerializedName("password")
+    @Expose
+    private String password;
+
+    @SerializedName("foto")
+    @Expose
+    private String foto;
+
+
+
     @SerializedName("nama_lokasi")
     @Expose
     private String nama_lokasi;
+
     @SerializedName("longtitude")
     @Expose
     private String longtitude;
+
     @SerializedName("latitude")
     @Expose
     private String latitude;
-    @SerializedName("id_laporan")
-    @Expose
-    private String id_laporan;
-    @SerializedName("id_jadwal_laporan")
-    @Expose
-    private String id_jadwal_laporan;
-    @SerializedName("foto_laporan")
-    @Expose
-    private String foto_laporan;
-    @SerializedName("deskripsi")
-    @Expose
-    private String deskripsi;
 
-    public Jadwal(String id_jadwal, String tanggal, String id_karyawan, String id_lokasi) {
+    @SerializedName("hari")
+    @Expose
+    private String hari;
+
+    public Jadwal(String id_jadwal, String id_hari, String id_karyawan, String id_lokasi) {
         this.id_jadwal = id_jadwal;
-        this.tanggal = tanggal;
+        this.id_hari = id_hari;
         this.id_karyawan = id_karyawan;
         this.id_lokasi = id_lokasi;
     }
-
 
     public String getId_jadwal() {
         return id_jadwal;
@@ -82,12 +89,12 @@ public class Jadwal {
         this.id_jadwal = id_jadwal;
     }
 
-    public String getTanggal() {
-        return tanggal;
+    public String getId_hari() {
+        return id_hari;
     }
 
-    public void setTanggal(String tanggal) {
-        this.tanggal = tanggal;
+    public void setId_hari(String id_hari) {
+        this.id_hari = id_hari;
     }
 
     public String getId_karyawan() {
@@ -194,35 +201,11 @@ public class Jadwal {
         this.latitude = latitude;
     }
 
-    public String getId_laporan() {
-        return id_laporan;
+    public String getHari() {
+        return hari;
     }
 
-    public void setId_laporan(String id_laporan) {
-        this.id_laporan = id_laporan;
-    }
-
-    public String getId_jadwal_laporan() {
-        return id_jadwal_laporan;
-    }
-
-    public void setId_jadwal_laporan(String id_jadwal_laporan) {
-        this.id_jadwal_laporan = id_jadwal_laporan;
-    }
-
-    public String getFoto_laporan() {
-        return foto_laporan;
-    }
-
-    public void setFoto_laporan(String foto_laporan) {
-        this.foto_laporan = foto_laporan;
-    }
-
-    public String getDeskripsi() {
-        return deskripsi;
-    }
-
-    public void setDeskripsi(String deskripsi) {
-        this.deskripsi = deskripsi;
+    public void setHari(String hari) {
+        this.hari = hari;
     }
 }

@@ -34,18 +34,18 @@ public class Report_adapter extends RecyclerView.Adapter<Report_adapter.ViewHold
     @Override
     public void onBindViewHolder(final Report_adapter.ViewHolder holder, int position) {
         final Laporan model = items.get(position);
-        final String Nama_tempat = model.getNama_lokasi();
+        final String Nama_tempat = model.getNamaLokasi();
         final String tanggal = model.getTanggal();
-        holder.Nama_tempat.setText(model.getNama_lokasi());
+        holder.Nama_tempat.setText(model.getNamaLokasi());
         holder.tanggal.setText(model.getTanggal());
         holder.cardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), Laporan_detail.class);
-                i.putExtra("id_laporan", model.getId_laporan());
-                i.putExtra("foto_laporan", model.getFoto_laporan());
-                i.putExtra("nama_karyawan", model.getNama_karyawan());
-                i.putExtra("nama_lokasi", model.getNama_lokasi());
+                i.putExtra("id_laporan", model.getIdLaporan());
+                i.putExtra("foto_laporan", model.getFotoLaporan());
+                i.putExtra("nama_karyawan", model.getNamaKaryawan());
+                i.putExtra("nama_lokasi", model.getNamaLokasi());
                 i.putExtra("tanggal", model.getTanggal());
                 i.putExtra("deskripsi", model.getDeskripsi());
                 v.getContext().startActivity(i);

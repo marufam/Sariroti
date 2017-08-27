@@ -10,30 +10,34 @@ import com.google.gson.annotations.SerializedName;
 public class Laporan {
     @SerializedName("id_laporan")
     @Expose
-    private String id_laporan;
-    @SerializedName("id_jadwal_laporan")
+    private String idLaporan;
+    @SerializedName("foto_laporan")
     @Expose
-    private String id_jadwal_laporan;
-    @SerializedName("foto_karyawan")
-    @Expose
-    private String foto_karyawan;
+    private String fotoLaporan;
     @SerializedName("deskripsi")
     @Expose
     private String deskripsi;
-
     @SerializedName("status")
     @Expose
     private String status;
-
+    @SerializedName("tanggal")
+    @Expose
+    private String tanggal;
+    @SerializedName("id_karyawan")
+    @Expose
+    private String idKaryawan;
+    @SerializedName("id_lokasi")
+    @Expose
+    private String idLokasi;
     @SerializedName("nama_karyawan")
     @Expose
-    private String nama_karyawan;
+    private String namaKaryawan;
     @SerializedName("tempat_lahir")
     @Expose
-    private String tempat_lahir;
+    private String tempatLahir;
     @SerializedName("tgl_lahir")
     @Expose
-    private String tgl_lahir;
+    private String tglLahir;
     @SerializedName("alamat")
     @Expose
     private String alamat;
@@ -46,73 +50,33 @@ public class Laporan {
     @SerializedName("password")
     @Expose
     private String password;
-
+    @SerializedName("foto")
+    @Expose
+    private String foto;
     @SerializedName("nama_lokasi")
     @Expose
-    private String nama_lokasi;
+    private String namaLokasi;
     @SerializedName("longtitude")
     @Expose
     private String longtitude;
     @SerializedName("latitude")
     @Expose
     private String latitude;
-    @SerializedName("tanggal")
-    @Expose
-    private String tanggal;
-    @SerializedName("foto")
-    @Expose
-    private String foto;
 
-    public String getFoto_laporan() {
-        return foto_laporan;
+    public String getIdLaporan() {
+        return idLaporan;
     }
 
-    public void setFoto_laporan(String foto_laporan) {
-        this.foto_laporan = foto_laporan;
+    public void setIdLaporan(String idLaporan) {
+        this.idLaporan = idLaporan;
     }
 
-    @SerializedName("foto_laporan")
-    @Expose
-    private String foto_laporan;
-
-    public Laporan(String id_laporan, String id_jadwal_laporan, String foto_karyawan, String deskripsi, String status) {
-        this.id_laporan = id_laporan;
-        this.id_jadwal_laporan = id_jadwal_laporan;
-        this.foto_karyawan = foto_karyawan;
-        this.deskripsi = deskripsi;
-        this.status = status;
+    public String getFotoLaporan() {
+        return fotoLaporan;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getId_laporan() {
-        return id_laporan;
-    }
-
-    public void setId_laporan(String id_laporan) {
-        this.id_laporan = id_laporan;
-    }
-
-    public String getId_jadwal() {
-        return id_jadwal_laporan;
-    }
-
-    public void setId_jadwal(String id_jadwal_laporan) {
-        this.id_jadwal_laporan = id_jadwal_laporan;
-    }
-
-    public String getFoto_karyawan() {
-        return foto_karyawan;
-    }
-
-    public void setFoto_karyawan(String foto_karyawan) {
-        this.foto_karyawan = foto_karyawan;
+    public void setFotoLaporan(String fotoLaporan) {
+        this.fotoLaporan = fotoLaporan;
     }
 
     public String getDeskripsi() {
@@ -123,29 +87,60 @@ public class Laporan {
         this.deskripsi = deskripsi;
     }
 
-
-    public String getNama_karyawan() {
-        return nama_karyawan;
+    public String getStatus() {
+        return status;
     }
 
-    public void setNama_karyawan(String nama_karyawan) {
-        this.nama_karyawan = nama_karyawan;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public String getTempat_lahir() {
-        return tempat_lahir;
+    public String getTanggal() {
+        return tanggal;
     }
 
-    public void setTempat_lahir(String tempat_lahir) {
-        this.tempat_lahir = tempat_lahir;
+    public void setTanggal(String tanggal) {
+        this.tanggal = tanggal;
     }
 
-    public String getTgl_lahir() {
-        return tgl_lahir;
+    public String getIdKaryawan() {
+        return idKaryawan;
     }
 
-    public void setTgl_lahir(String tgl_lahir) {
-        this.tgl_lahir = tgl_lahir;
+    public void setIdKaryawan(String idKaryawan) {
+        this.idKaryawan = idKaryawan;
+    }
+
+    public String getIdLokasi() {
+        return idLokasi;
+    }
+
+    public void setIdLokasi(String idLokasi) {
+        this.idLokasi = idLokasi;
+    }
+
+    public String getNamaKaryawan() {
+        return namaKaryawan;
+    }
+
+    public void setNamaKaryawan(String namaKaryawan) {
+        this.namaKaryawan = namaKaryawan;
+    }
+
+    public String getTempatLahir() {
+        return tempatLahir;
+    }
+
+    public void setTempatLahir(String tempatLahir) {
+        this.tempatLahir = tempatLahir;
+    }
+
+    public String getTglLahir() {
+        return tglLahir;
+    }
+
+    public void setTglLahir(String tglLahir) {
+        this.tglLahir = tglLahir;
     }
 
     public String getAlamat() {
@@ -180,12 +175,20 @@ public class Laporan {
         this.password = password;
     }
 
-    public String getNama_lokasi() {
-        return nama_lokasi;
+    public String getFoto() {
+        return foto;
     }
 
-    public void setNama_lokasi(String nama_lokasi) {
-        this.nama_lokasi = nama_lokasi;
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public String getNamaLokasi() {
+        return namaLokasi;
+    }
+
+    public void setNamaLokasi(String namaLokasi) {
+        this.namaLokasi = namaLokasi;
     }
 
     public String getLongtitude() {
@@ -202,29 +205,5 @@ public class Laporan {
 
     public void setLatitude(String latitude) {
         this.latitude = latitude;
-    }
-
-    public String getTanggal() {
-        return tanggal;
-    }
-
-    public void setTanggal(String tanggal) {
-        this.tanggal = tanggal;
-    }
-
-    public String getId_jadwal_laporan() {
-        return id_jadwal_laporan;
-    }
-
-    public void setId_jadwal_laporan(String id_jadwal_laporan) {
-        this.id_jadwal_laporan = id_jadwal_laporan;
-    }
-
-    public String getFoto() {
-        return foto;
-    }
-
-    public void setFoto(String foto) {
-        this.foto = foto;
     }
 }

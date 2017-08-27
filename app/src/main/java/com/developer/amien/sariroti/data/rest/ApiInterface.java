@@ -83,9 +83,10 @@ public interface ApiInterface {
     @POST("index.php/laporan_api")
     Call<GetLaporan> laporan_insert(@Part MultipartBody.Part foto_laporan,
                                     @Part("id_laporan")RequestBody id_laporan,
-                                    @Part("id_jadwal_laporan")RequestBody id_jadwal_laporan,
                                     @Part("deskripsi")RequestBody deskripsi,
                                     @Part("status")RequestBody status,
+                                    @Part("id_karyawan")RequestBody id_karyawan,
+                                    @Part("id_lokasi")RequestBody id_lokasi,
                                     @Part("action")RequestBody action
             )
             ;
